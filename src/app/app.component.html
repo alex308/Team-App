@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+  <h1>Team Generator</h1>
+</mat-toolbar>
+
+<div class="content">
+  <section class="content-players section">
+    <h2>Players</h2>
+    <mat-list>
+      <mat-list-item class="teams-list_item" *ngFor="let member of members, let i = index">
+        <span>{{member}}</span>
+        <button class="remove-player" mat-icon-button aria-label="Remove player" (click)="removePlayer(i)">
+          <mat-icon>person_remove</mat-icon>
+        </button>
+      </mat-list-item>
+    </mat-list>
+  </section>
+
+  <section class="section">
+    <h2>Team Settings</h2>
+    <form class="teams-form" [formGroup]="teamGeneratorForm">
+        <mat-form-field>
+          <mat-label>Team size</mat-label>
+          <mat-select formControlName="teamSize">
+            <mat-option>-</mat-option>
+            <mat-option *ngFor="let option of maxTeamSize; let i = index" [value]="i + 1">{{i + 1}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  
+        <mat-form-field>
+          <mat-label>Number of Teams</mat-label>
+          <mat-select formControlName="numberOfTeams">
+            <mat-option>-</mat-option>
+            <mat-option *ngFor="let option of maxNumberOfTeams; let i = index" [value]="i + 1">{{i + 1}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+          <mat-form-field>
+            <mat-label>Players*</mat-label>
+            <input matInput type="text" formControlName="name">
+            <button mat-icon-button matSuffix aria-label="Add player" (click)="addPlayer()">
+              <mat-icon matSuffix>person_add</mat-icon>
+            </button>
+          </mat-form-field>
+
+      <p *ngIf="notEnoughMembersSelected">Please enter at least two players to generate teams.</p>
+    
+      <button mat-raised-button (click)="generateTeams()" color="primary">Generate</button>
+    </form>
+  </section>
+  
+  <section class="section">
+    <h2>Teams</h2>
+  
+    <div class="teams">
+      <mat-card class="team" *ngFor="let team of teams; let i = index">
+        <mat-card-title>Team {{i + 1}}</mat-card-title>
+        <mat-card-content>
+          <mat-list role="list">
+            <mat-list-item role="member" *ngFor="let member of team.members">{{member}}</mat-list-item>
+          </mat-list>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+</div>

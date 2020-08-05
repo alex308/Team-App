@@ -1,0 +1,46 @@
+.content {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .section {
+        display:flex;
+        flex-grow: 1;
+        flex: 0 32%;
+        min-width: 200px;
+        flex-direction: column;
+        align-items:center;
+    }
+}
+
+.teams-form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mat-list-base .teams-list_item {
+    min-width: 200px;
+    
+    .mat-list-item-content {
+        
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .remove-player {
+        justify-self: end;
+    }
+}
+
+.teams {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.team {
+    margin: 0 5px 10px;
+    flex-grow: 1;
+}

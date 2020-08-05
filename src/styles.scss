@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.content-players .mat-list-base .mat-list-item .mat-list-item-content {
+    display:flex;
+    justify-content: space-between;
+    padding:0;
+}
+
+.team .mat-card-title {
+    text-align: center;
+    font-size: 16px;
+}
+
+
